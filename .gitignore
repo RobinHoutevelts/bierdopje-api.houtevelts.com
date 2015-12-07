@@ -1,0 +1,6 @@
+/.idea
+/.vagrant
+/vendor
+/node_modules
+.env
+composer.lock

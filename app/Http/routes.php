@@ -1,16 +1,16 @@
 <?php
-
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
-
 Route::get('/', function () {
-    return view('welcome');
+  return redirect('http://www.bierdopje.com');
 });
+
+Route::get('/GetShowByName/{showName}', 'ApiController@getShowByName');
+Route::get('/GetShowById/{showId}', 'ApiController@getShowById');
+Route::get('/GetShowByTVDBID/{TvdbId}', 'ApiController@getShowByTVDBID');
+Route::get('/GetEpisodesForSeason/{showId}/{season}', 'ApiController@getEpisodesForSeason');
+Route::get('/GetEpisodeById/{episodeId}', 'ApiController@getEpisodeById');
+Route::get('/GetAllEpisodesForShow/{showId}', 'ApiController@getAllEpisodesForShow');
+
+Route::get('/show/{showName}', 'ApiController@getShowById');
+Route::get('/show/{showId}/episodes', 'ApiController@getAllEpisodesForShow');
+Route::get('/show/{showId}/episodes/{season}', 'ApiController@getEpisodesForSeason');
+Route::get('/episode/{episodeId}', 'ApiController@getEpisodeById');

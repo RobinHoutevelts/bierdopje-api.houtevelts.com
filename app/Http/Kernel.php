@@ -18,6 +18,7 @@ class Kernel extends HttpKernel
         \Illuminate\Session\Middleware\StartSession::class,
         \Illuminate\View\Middleware\ShareErrorsFromSession::class,
         //\App\Http\Middleware\VerifyCsrfToken::class, Not needed for an API
+        'Barryvdh\Cors\HandleCors',
         'Barryvdh\HttpCache\Middleware\CacheRequests',
     ];
 

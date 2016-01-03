@@ -3,13 +3,27 @@
 [Bierdopje](http://www.bierdopje.com) is a dutch community where series are discussed.
 
 To use the API you need an API key, but it appears no keys are being handed out any more.
-This project is aimed at those that still want to experiment with the API of Bierdopje but can't get their hands on a key.
-
-Point your requests to `https://bierdopje-api.houtevelts.com` and we'll provide you with what Bierdopje answers.
+This project is aimed at those that still want to experiment with the API but can't get their hands on a key.
 
 ## Documentation
 
 Please check out the documentation on [Apiary](https://jsapi.apiary.io/previews/bierdopje1/reference)
+
+## Running your own Api
+
+To run your own API server you'll need an API key from Bierdopje.
+
+    git clone https://github.com/RobinHoutevelts/bierdopje-api.houtevelts.com.git .
+    composer install
+    chmod -R 777 storage/
+    cp env.example .env
+    php artisan key:generate
+
+Then set your API key in `/.env`
+
+If you need to clear your HTTP cache run
+
+    php artisan httpcache:clear
 
 ## Security Vulnerabilities
 

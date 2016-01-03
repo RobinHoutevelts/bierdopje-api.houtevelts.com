@@ -10,7 +10,7 @@ Route::get('/GetEpisodesForSeason/{showId}/{season}', 'ApiController@getEpisodes
 Route::get('/GetEpisodeById/{episodeId}', 'ApiController@getEpisodeById');
 Route::get('/GetAllEpisodesForShow/{showId}', 'ApiController@getAllEpisodesForShow');
 
-Route::get('/show/{showName}', 'ApiController@getShowById');
+Route::get('/show/{showId}', 'ApiController@getShowById');
 Route::get('/show/{showId}/episodes', 'ApiController@getAllEpisodesForShow');
 Route::get('/show/{showId}/episodes/{season}', 'ApiController@getEpisodesForSeason');
 Route::get('/episode/{episodeId}', 'ApiController@getEpisodeById');

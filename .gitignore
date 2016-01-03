@@ -2,5 +2,6 @@
 /.vagrant
 /vendor
 /node_modules
+/storage/httpcache
 .env
 composer.lock

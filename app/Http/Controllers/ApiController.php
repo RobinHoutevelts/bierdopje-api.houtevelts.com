@@ -1,6 +1,5 @@
 <?php namespace App\Http\Controllers;
 
-use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Http\JsonResponse;
 use mattiasdelang\Bierdopje;
 
@@ -9,18 +8,9 @@ class ApiController extends Controller {
   /** @var  Bierdopje */
   protected $api;
 
-  /** @var  Filesystem */
-  protected $filesystem;
-
-  protected $ttl;
-
-  public function __construct(Filesystem $filesystem)
+  public function __construct()
   {
     $this->api        = app()->make('BierdopjeApi');
-    $this->filesystem = $filesystem;
-    $this->ttl        = 60 * 60 * 24; // 24h
-
-    $this->middleware('cors');
   }
 
   public function getShowById($showId)
@@ -28,7 +18,7 @@ class ApiController extends Controller {
     $show = $this->api->getShowById($showId);
     $show = $this->formatShow($show);
 
-    return JsonResponse::create($show)->setTtl($this->ttl);
+    return JsonResponse::create($show);
   }
 
   public function getShowByName($showName)
@@ -39,7 +29,7 @@ class ApiController extends Controller {
     $show = $this->api->getShowByName($showName);
     $show = $this->formatShow($show);
 
-    return JsonResponse::create($show)->setTtl($this->ttl);
+    return JsonResponse::create($show);
   }
 
   public function getShowByTVDBID($tvdbId)
@@ -50,7 +40,7 @@ class ApiController extends Controller {
     $show = $this->api->getShowByTvdbId($tvdbId);
     $show = $this->formatShow($show);
 
-    return JsonResponse::create($show)->setTtl($this->ttl);
+    return JsonResponse::create($show);
   }
 
   public function getEpisodesForSeason($showId, $season)
@@ -61,7 +51,7 @@ class ApiController extends Controller {
     $episodes = $this->api->getEpisodesOfSeason($showId, $season);
     $episodes = $this->formatEpisodes($episodes);
 
-    return JsonResponse::create($episodes)->setTtl($this->ttl);
+    return JsonResponse::create($episodes);
   }
 
   public function getEpisodeById($episodeId)
@@ -72,7 +62,7 @@ class ApiController extends Controller {
     $episode = $this->api->getEpisodeById($episodeId);
     $episode = $this->formatEpisode($episode);
 
-    return JsonResponse::create($episode)->setTtl($this->ttl);
+    return JsonResponse::create($episode);
   }
 
   public function getAllEpisodesForShow($showId)
@@ -83,7 +73,7 @@ class ApiController extends Controller {
     $episodes = $this->api->getEpisodesOfShow($showId);
     $episodes = $this->formatEpisodes($episodes);
 
-    return JsonResponse::create($episodes)->setTtl($this->ttl);
+    return JsonResponse::create($episodes);
   }
 
   private function formatShow($show)

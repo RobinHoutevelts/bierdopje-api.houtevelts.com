@@ -7,7 +7,7 @@ This project is aimed at those that still want to experiment with the API but ca
 
 ## Documentation
 
-Please check out the documentation on [Apiary](https://jsapi.apiary.io/previews/bierdopje1/reference)
+Please check out the documentation on [Apiary](http://docs.bierdopje1.apiary.io/)
 
 ## Running your own Api
 

@@ -16,7 +16,7 @@ To run your own API server you'll need an API key from Bierdopje.
     git clone https://github.com/RobinHoutevelts/bierdopje-api.houtevelts.com.git .
     composer install
     chmod -R 777 storage/
-    cp env.example .env
+    cp .env.example .env
     php artisan key:generate
 
 Then set your API key in `/.env`

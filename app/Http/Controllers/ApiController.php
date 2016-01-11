@@ -84,6 +84,7 @@ class ApiController extends Controller {
     $show->firstAired  = $this->formatDate($show->firstAired);
     $show->lastAired   = $this->formatDate($show->lastAired);
     $show->nextEpisode = $this->formatDate($show->nextEpisode);
+    $show->updated     = $this->formatDate($show->updated, 'd-m-Y H:i:s');
 
     return $show;
   }
@@ -102,6 +103,7 @@ class ApiController extends Controller {
       return null;
 
     $episode->airDate = $this->formatDate($episode->airDate);
+    $episode->updated = $this->formatDate($episode->updated, 'd-m-Y H:i:s');
 
     return $episode;
   }

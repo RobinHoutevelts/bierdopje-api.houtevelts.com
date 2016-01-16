@@ -46,6 +46,9 @@ class Handler extends ExceptionHandler
             $e = new NotFoundHttpException($e->getMessage(), $e);
         }
 
-        return parent::render($request, $e);
+        $response = parent::render($request, $e);
+        $cors = app()->make('Asm89\Stack\CorsService');
+
+        return $cors->addActualRequestHeaders($response, $request);
     }
 }

@@ -32,6 +32,14 @@ class ApiController extends Controller {
     return JsonResponse::create($show);
   }
 
+  public function getShowByLinkName($linkName)
+  {
+    $show = $this->api->getShowByName($linkName, true);
+    $show = $this->formatShow($show);
+
+    return JsonResponse::create($show);
+  }
+
   public function getShowByTVDBID($tvdbId)
   {
     if ( ! is_numeric($tvdbId) )

@@ -4,6 +4,7 @@ Route::get('/', function () {
 });
 
 Route::get('/GetShowByName/{showName}', 'ApiController@getShowByName');
+Route::get('/GetShowByLinkName/{linkName}', 'ApiController@getShowByLinkName');
 Route::get('/GetShowById/{showId}', 'ApiController@getShowById');
 Route::get('/GetShowByTVDBID/{TvdbId}', 'ApiController@getShowByTVDBID');
 Route::get('/GetEpisodesForSeason/{showId}/{season}', 'ApiController@getEpisodesForSeason');

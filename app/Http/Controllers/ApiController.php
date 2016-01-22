@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use mattiasdelang\Bierdopje;
 
@@ -93,6 +94,7 @@ class ApiController extends Controller {
     $show->lastAired   = $this->formatDate($show->lastAired);
     $show->nextEpisode = $this->formatDate($show->nextEpisode);
     $show->updated     = $this->formatDate($show->updated, 'd-m-Y H:i:s');
+    $show->cached      = Carbon::now()->format('d-m-Y H:i:s');
 
     return $show;
   }
@@ -112,6 +114,7 @@ class ApiController extends Controller {
 
     $episode->airDate = $this->formatDate($episode->airDate);
     $episode->updated = $this->formatDate($episode->updated, 'd-m-Y H:i:s');
+    $episode->cached  = Carbon::now()->format('d-m-Y H:i:s');
 
     return $episode;
   }

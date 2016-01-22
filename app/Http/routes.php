@@ -3,7 +3,7 @@ Route::get('/', function () {
   return redirect('http://www.bierdopje.com');
 });
 
-Route::group(['middleware' => 'throttle:100,30'], function () {
+Route::group(['middleware' => ['throttle:100,30','apiCache']], function () {
   Route::get('/GetShowByName/{showName}', 'ApiController@getShowByName');
   Route::get('/GetShowByLinkName/{linkName}', 'ApiController@getShowByLinkName');
   Route::get('/GetShowById/{showId}', 'ApiController@getShowById');

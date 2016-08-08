@@ -11,7 +11,7 @@ Please check out the documentation on [Apiary](http://docs.bierdopje1.apiary.io/
 
 ## Running your own Api
 
-To run your own API server you'll need an API key from Bierdopje.
+If you prefer to run your _own_ API server you are free to do so. However you'll have to provide your own API key from Bierdopje.
 
     git clone https://github.com/RobinHoutevelts/bierdopje-api.houtevelts.com.git .
     composer install
